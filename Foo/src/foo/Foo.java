@@ -16,7 +16,7 @@ public class Foo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //asd
+        new GameFrame().setVisible(true);
     }
     
 }
