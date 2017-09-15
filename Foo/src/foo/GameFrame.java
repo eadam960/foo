@@ -163,6 +163,11 @@ public class GameFrame extends javax.swing.JFrame {
         );
 
         jBtnReset.setText("Reset");
+        jBtnReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBtnResetMouseClicked(evt);
+            }
+        });
 
         jBtnLock.setText("Unlocked");
         jBtnLock.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,6 +251,23 @@ public class GameFrame extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jBtnElementClicked
+
+    private void jBtnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnResetMouseClicked
+        // TODO add your handling code here:
+        logicGm = new LogicGame();
+        if(evt.getButton() == 3){
+            boolean[] tmp = {false,true, false,true, false,true, false, true };
+            logicGm.setElementsIfUnlocked(tmp);
+            logicGm.setLocked(true);
+            this.jBtnLock.setText("Locked");
+            
+        }else{
+            this.jBtnLock.setText("Unlocked");
+        }
+        refresh();
+        
+        
+    }//GEN-LAST:event_jBtnResetMouseClicked
 
     private void refresh(){
         boolean[] tmp = logicGm.getElements();

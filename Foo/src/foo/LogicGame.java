@@ -58,7 +58,7 @@ public class LogicGame {
 
     public boolean setElementsIfUnlocked(boolean[] elements) {
         if(!locked){
-            this.elements = elements;
+            this.elements = elements.clone();
             return true;
         }
         return false;
