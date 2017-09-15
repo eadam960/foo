@@ -5,7 +5,9 @@
  */
 package foo;
 
+import java.awt.Color;
 import java.util.Arrays;
+import javax.swing.JButton;
 
 /**
  *
@@ -14,6 +16,8 @@ import java.util.Arrays;
 public class GameFrame extends javax.swing.JFrame {
     private LogicGame logicGm;
     private javax.swing.JButton[] gameBtns;
+    private Color activeColor, inactiveColor;
+    
     
 
     /**
@@ -201,7 +205,8 @@ public class GameFrame extends javax.swing.JFrame {
         logicGm = new LogicGame();
         gameBtns = new javax.swing.JButton[logicGm.getSIZE()];
         buttonsToList();
-        
+        inactiveColor = new Color(51,102,0);
+        activeColor = new Color(51,255,0);
         
         
         
@@ -236,14 +241,22 @@ public class GameFrame extends javax.swing.JFrame {
         javax.swing.JButton tmp = (javax.swing.JButton) evt.getComponent();
         int indexOfTmpBtn = Arrays.asList(gameBtns).indexOf(tmp);
         logicGm.switchElement(indexOfTmpBtn);
-        
+        refresh();
         
         
         
     }//GEN-LAST:event_jBtnElementClicked
 
-    private void reload(){
-        
+    private void refresh(){
+        boolean[] tmp = logicGm.getElements();
+        for (int i = 0; i < tmp.length; i++) {
+            if(tmp[i]){
+                gameBtns[i].setBackground(activeColor);
+            }else{
+                gameBtns[i].setBackground(inactiveColor);
+            }
+            
+        }
     
     }
     
