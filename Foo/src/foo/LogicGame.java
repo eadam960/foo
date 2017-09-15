@@ -51,6 +51,21 @@ public class LogicGame {
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
+
+    public int getSIZE() {
+        return SIZE;
+    }
+
+    public boolean setElementsIfUnlocked(boolean[] elements) {
+        if(!locked){
+            this.elements = elements;
+            return true;
+        }
+        return false;
+        
+    }
+    
+    
     
     
     

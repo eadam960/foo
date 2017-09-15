@@ -24,6 +24,7 @@ public class Proba {
     @Before
     public void setUp() {
         logicGm = new LogicGame();
+        
     }
 
     @Test
@@ -38,6 +39,18 @@ public class Proba {
         for (boolean b : asd) {
             assertFalse(b);
         }
+        
+    }
+    
+    @Test
+    public void second(){
+        boolean [] asd = logicGm.getElements();
+        assertTrue(logicGm.setElementsIfUnlocked(asd));
+        logicGm.setLocked(true);
+        assertFalse(logicGm.setElementsIfUnlocked(asd));
+        
+        
+        
         
     }
 }
