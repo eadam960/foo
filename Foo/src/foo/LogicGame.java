@@ -5,6 +5,8 @@
  */
 package foo;
 
+import java.util.Arrays;
+
 /**
  *
  * @author eadam
@@ -34,18 +36,12 @@ public class LogicGame {
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
+
     
     
 
-    public boolean[] getElements() {    //  safe? copy!
-        return elements;
+    public boolean[] getElements() {
+        return elements.clone();    
     }
 
     public boolean isLocked() {
